@@ -58,6 +58,9 @@ app.use(function(req, res, next) {
 // EJS
 app.set('view engine', 'ejs');
 
+//Public folder
+app.use(express.static('./public'));
+
 
 // Data parsing
 app.use(express.json());

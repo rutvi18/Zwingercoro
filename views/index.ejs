@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Title of the document</title>
+      <title>Zwinger</title>
+	  <link rel="icon" type="image/jpg" sizes="56x56" href="/public/logo.jpg">
    </head>
    <body>
      <a href="/users/login" class="btn btn-primary btn-block mb-2"
        >login</a
      >
       <a href="/users/register" class="btn btn-primary btn-block mb-2"
-        >Hostel Register</a
-      >
+        >Hostel Register</a>
+		<img src="/public/images/home/1.jpg" alt="dog">
+      <form action="/search" method="post">
+        <label for="City"><b>Where is your little friend </b></label>
+        <input type="text" placeholder="Enter the city " name="city" required>
+        <label for="Date"><b>From the date  </b></label>
+        <input type="date" placeholder=false name="date1" required>
+        <label for="Date"><b>To the date  </b></label>
+        <input type="date" placeholder=false name="date1" required>
+        <button type="submit" >Search</button>
+      </form>
    </body>
 </html>

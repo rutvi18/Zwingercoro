@@ -16,10 +16,10 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 
 router.post('/register',(req,res)=>{
-  const { fname,lname,address,email,pnum,password,password2} = req.body;
+  const { fname,lname,address1,address2,city,state,pincode,email,pnum,password,password2} = req.body;
   let errors = [];
 
-  if (!fname || !lname || !email || !password || !pnum ||  !password2) {
+  if (!fname || !lname || !email || !password || !pnum ||  !password2 || !address1 || !address2 || !city || !state || !pincode) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -30,13 +30,20 @@ router.post('/register',(req,res)=>{
   if (password.length < 6) {
     errors.push({ msg: 'Password must be at least 6 characters' });
   }
+  if (pincode.length != 6) {
+    errors.push({ msg: 'Pin code is wrong' });
+  }
 
   if (errors.length > 0) {
     res.render('register', {
       errors,
       fname,
       lname,
-      address,
+      address1,
+      address2,
+      city,
+      state,
+      pincode,
       email,
       pnum,
       password,
@@ -50,7 +57,11 @@ router.post('/register',(req,res)=>{
           errors,
           fname,
           lname,
-          address,
+          address1,
+          address2,
+          city,
+          state,
+          pincode,
           email,
           pnum,
           password,
@@ -60,7 +71,11 @@ router.post('/register',(req,res)=>{
         var newH_user= new H_user({
           fname,
           lname,
-          address,
+          address1,
+          address2,
+          city,
+          state,
+          pincode,
           email,
           pnum,
           password
